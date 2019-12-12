@@ -23,6 +23,17 @@ const Posts = props => {
               className="fas fa-thumbs-down"
             ></i>
           </div>
+          <form className="commenttext" onSubmit={(e) => props.commentSubmit(e, post)}> 
+            <textarea
+              type="textarea"
+              rows="2"
+              name="comments"
+              placeholder="COMMENT"
+              value={props.comment}
+              onChange={props.onContentChange}
+            />
+            <input type="submit" value="COMMENT" />
+          </form>
           {post.comments.length > 0 && <Comments comments={post.comments} />}
         </div>
       ))}

@@ -41,6 +41,17 @@ class Post extends Component {
     });
   };
 
+  commentSubmit = (e, post) => {
+    e.preventDefault();
+    const comment = this.state.comments;
+    const currentArray = this.state.posts.filter(checkPost => checkPost.title !== post.title);
+    post.comments.push(comment);
+    this.setState({
+      posts: [...currentArray, post]
+    })
+    this.sortList();
+  };
+
   postSubmit = e => {
     e.preventDefault();
     const currentPosts = this.state.posts;
@@ -48,7 +59,8 @@ class Post extends Component {
       author: this.state.author,
       title: this.state.title,
       content: this.state.content,
-      voteCount: this.state.voteCount
+      voteCount: this.state.voteCount,
+      comments: this.state.comments
     };
     currentPosts.push(newPost);
     this.setState({
@@ -86,7 +98,12 @@ class Post extends Component {
           title={this.state.title}
           content={this.state.content}
         />
-        <Posts posts={this.state.posts} vote={this.vote} />
+        <Posts
+          posts={this.state.posts}
+          vote={this.vote}
+          onContentChange={this.onContentChange}
+          commentSubmit={this.commentSubmit}
+        />
       </div>
     );
   }

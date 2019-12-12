@@ -1,8 +1,11 @@
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-body, .App, .post-wrapper {
+body,
+.App,
+.post-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,12 +23,14 @@ body, .App, .post-wrapper {
 .indvPost {
   margin: 2vh;
   padding: 2vh;
-  border: solid .5px white;
+  border: solid 0.5px white;
   border-radius: 15px;
   width: 50vw;
 }
 
-.post-wrapper p, .post-wrapper h4, .post-wrapper h2 {
+.post-wrapper p,
+.post-wrapper h4,
+.post-wrapper h2 {
   margin: 0;
   padding: 0;
 }
@@ -44,12 +49,13 @@ form {
   border-radius: 15px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   background: lightskyblue;
   color: black;
   text-align: center;
   margin: 1vh;
-  padding: .5vh;
+  padding: 0.5vh;
 }
 
 .red {
@@ -71,4 +77,17 @@ form input, form textarea {
 
 .votes i {
   margin: 2vh;
+}
+
+.commenttext {
+  margin: 0 auto;
+  border: none;
+  width: 45%;
+  text-align: center;
+  padding: 0 auto;
+}
+
+.commenttext > textarea {
+  background-color: black;
+  color: white;
 }
