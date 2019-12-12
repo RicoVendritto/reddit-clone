@@ -48,20 +48,24 @@ class App extends Component {
 
   postSubmit = e => {
     e.preventDefault();
+    const currentPosts = this.state.posts;
     const newPost = {
       author: this.state.author,
       title: this.state.title,
       content: this.state.content,
       voteCount: this.state.voteCount
     };
+    currentPosts.push(newPost);
     this.setState({
-      posts: [...this.state.posts, newPost],
+      posts: currentPosts,
       content: "",
       title: ""
     });
+    this.sortList();
   };
 
   vote = (e, postTitle, operator) => {
+    e.preventDefault();
     switch (operator) {
       case "plus":
         postTitle.voteCount++;
@@ -99,11 +103,11 @@ class App extends Component {
               <div className="votes">
                 <i
                   onClick={e => this.vote(e, post, "plus")}
-                  class="fas fa-thumbs-up icon-5x"
+                  className="fas fa-thumbs-up"
                 ></i>
                 <i
                   onClick={e => this.vote(e, post, "minus")}
-                  class="fas fa-thumbs-down icon-5x"
+                  className="fas fa-thumbs-down"
                 ></i>
               </div>
             </div>
