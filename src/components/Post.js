@@ -12,12 +12,14 @@ class Post extends Component {
       title: "",
       author: "Richard M Braamburg",
       voteCount: 0,
+      comments: [],
       posts: [
         {
           title: "This is a Title",
           content: "Write anything you like",
           author: "Mr. Nice Guy",
-          voteCount: 0
+          voteCount: 0,
+          comments: ["This post sucks!", "This is inspirational!"]
         }
       ]
     };

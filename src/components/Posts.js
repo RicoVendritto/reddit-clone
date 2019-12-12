@@ -1,6 +1,8 @@
 import React from "react";
 
-const Posts = (props) => {
+import Comments from "./Comments";
+
+const Posts = props => {
   return (
     <div className="post-wrapper">
       {props.posts.map((post, index) => (
@@ -21,6 +23,7 @@ const Posts = (props) => {
               className="fas fa-thumbs-down"
             ></i>
           </div>
+          {post.comments.length > 0 && <Comments comments={post.comments} />}
         </div>
       ))}
     </div>
