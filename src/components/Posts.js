@@ -3,6 +3,7 @@ import React from "react";
 import Comments from "./Comments";
 
 const Posts = props => {
+  console.log(props);
   return (
     <div className="post-wrapper">
       {props.posts.map((post, index) => (
@@ -27,14 +28,15 @@ const Posts = props => {
             <textarea
               type="textarea"
               rows="2"
-              name="comments"
+              name="newComment"
               placeholder="COMMENT"
               value={props.comment}
               onChange={props.onContentChange}
             />
             <input type="submit" value="COMMENT" />
           </form>
-          {post.comments.length > 0 && <Comments comments={post.comments} />}
+          {/* {post.comments.length > 0 && <Comments comments={post.comments} />} */}
+          <Comments comments={post.comments} />
         </div>
       ))}
     </div>

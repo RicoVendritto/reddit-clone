@@ -13,6 +13,7 @@ class Post extends Component {
       author: "Richard M Braamburg",
       voteCount: 0,
       comments: [],
+      newComment: "",
       posts: [
         {
           title: "This is a Title",
@@ -43,12 +44,14 @@ class Post extends Component {
 
   commentSubmit = (e, post) => {
     e.preventDefault();
-    const comment = this.state.comments;
-    const currentArray = this.state.posts.filter(checkPost => checkPost.title !== post.title);
+    const comment = this.state.newComment;
+    const currentArray = this.state.posts.filter(
+      checkPost => checkPost.title !== post.title
+    );
     post.comments.push(comment);
     this.setState({
       posts: [...currentArray, post]
-    })
+    });
     this.sortList();
   };
 
@@ -83,9 +86,9 @@ class Post extends Component {
       default:
         console.log("Something went terribly wrong!");
     }
-    this.setState({
-      post: postTitle.voterCount
-    });
+    // this.setState({
+    //   posts: postTitle.voteCount
+    // });
     this.sortList();
   };
 
